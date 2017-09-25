@@ -10,7 +10,7 @@
                 Modification film #{filmBean.film.titre}
             </h2>
             <h:form>
-                <h:panelGrid width="2">
+                <h:panelGrid columns="2">
                     <h:outputLabel for="titre" value="Titre"/>
                     <h:inputText value="#{filmBean.film.titre}"/>
                     <h:outputLabel for="annee" value="Année"/>
@@ -24,7 +24,18 @@
                     <h:outputLabel for="pays" value="Pays"/>
                     <h:selectManyListbox value="#{filmBean.film.pays}">
                         <f:selectItems value="#{filmBean.pays}" var="pays" itemLabel="#{pays.nom}" itemValue="#{pays}"/>
+                        <f:converter converterId="paysConverter"/>
                     </h:selectManyListbox>
+                    <!--
+                    <h:outputLabel for="realisateurs" value="Réalisateurs"/>
+                    <h:selectManyListbox value="#{filmBean.film.realisateurs}" size="5">
+                        <f:selectItems value="#{filmBean.personnes}" var="pers" itemLabel="#{pers.nom}, #{pers.prenom}" itemValue="#{pers}"/>
+                    </h:selectManyListbox>
+                    <h:outputLabel for="acteurs" value="Acteurs"/>
+                    <h:selectManyListbox value="#{filmBean.film.acteurs}" size="5">
+                        <f:selectItems value="#{filmBean.personnes}" var="pers" itemLabel="#{pers.nom}, #{pers.prenom}" itemValue="#{pers}"/>
+                    </h:selectManyListbox>-->
+                    <h:commandButton action="#{filmBean.modifierPOST()}" value="Modifier"/>
                 </h:panelGrid>
             </h:form>
         </ui:define>
