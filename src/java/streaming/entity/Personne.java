@@ -115,7 +115,7 @@ public class Personne implements Serializable {
 
     @Override
     public String toString() {
-        return "jpql.entity.Personne[ id=" + id + " ]";
+        return String.format("%s %s", this.prenom, this.nom);
     }
     
 }

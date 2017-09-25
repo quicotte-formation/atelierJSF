@@ -19,7 +19,7 @@ public class FilmService {
     public void supprimer(long id){
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         em.getTransaction().begin();
-        em.createQuery("DELETE FROM Film f WHERE f.id=:filmId").setParameter("id", id).executeUpdate();
+        em.createQuery("DELETE FROM Film f WHERE f.id=:filmId").setParameter("filmId", id).executeUpdate();
         em.getTransaction().commit();
     }
     

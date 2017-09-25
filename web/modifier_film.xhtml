@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="_TEMPLATE.xhtml">
+        <ui:define name="CONTENT">
+            <h2>
+                Modification film #{filmBean.film.titre}
+            </h2>
+            <h:form>
+                <h:panelGrid width="2">
+                    <h:outputLabel for="titre" value="Titre"/>
+                    <h:inputText value="#{filmBean.film.titre}"/>
+                    <h:outputLabel for="annee" value="Année"/>
+                    <h:inputText value="#{filmBean.film.annee}"/>
+                    <h:outputLabel for="duree" value="Durée"/>
+                    <h:inputText value="#{filmBean.film.duree}"/>
+                    <h:outputLabel for="titre" value="Titre"/>
+                    <h:selectOneMenu value="#{filmBean.film.genre.id}">
+                        <f:selectItems value="#{filmBean.genres}" var="genre" itemLabel="#{genre.nom}" itemValue="#{genre.id}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel for="pays" value="Pays"/>
+                    <h:selectManyListbox value="#{filmBean.film.pays}">
+                        <f:selectItems value="#{filmBean.pays}" var="pays" itemLabel="#{pays.nom}" itemValue="#{pays}"/>
+                    </h:selectManyListbox>
+                </h:panelGrid>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+

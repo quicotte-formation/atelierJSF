@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -40,16 +41,26 @@ public class Film implements Serializable {
     
     @OneToMany(mappedBy = "film")
     private List<Lien> liens = new ArrayList<>();
-    @ManyToMany    
+    @ManyToMany(fetch = FetchType.EAGER)    
     @JoinTable(name = "real_film")
     private List<Personne> realisateurs = new ArrayList<>();
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "acteur_film")
     private List<Personne> acteurs = new ArrayList<>();
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "pays_film")
     private List<Pays> pays = new ArrayList<>();
 
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
+    
+    
     public Long getId() {
         return id;
     }

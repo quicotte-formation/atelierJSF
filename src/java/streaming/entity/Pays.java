@@ -86,7 +86,7 @@ public class Pays implements Serializable {
 
     @Override
     public String toString() {
-        return "jpql.entity.Pays[ id=" + id + " ]";
+        return nom;
     }
     
 }
