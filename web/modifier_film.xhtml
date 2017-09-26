@@ -26,15 +26,17 @@
                         <f:selectItems value="#{filmBean.pays}" var="pays" itemLabel="#{pays.nom}" itemValue="#{pays}"/>
                         <f:converter converterId="paysConverter"/>
                     </h:selectManyListbox>
-                    <!--
+                    
                     <h:outputLabel for="realisateurs" value="Réalisateurs"/>
                     <h:selectManyListbox value="#{filmBean.film.realisateurs}" size="5">
                         <f:selectItems value="#{filmBean.personnes}" var="pers" itemLabel="#{pers.nom}, #{pers.prenom}" itemValue="#{pers}"/>
+                        <f:converter converterId="personneConverter"/>
                     </h:selectManyListbox>
                     <h:outputLabel for="acteurs" value="Acteurs"/>
                     <h:selectManyListbox value="#{filmBean.film.acteurs}" size="5">
                         <f:selectItems value="#{filmBean.personnes}" var="pers" itemLabel="#{pers.nom}, #{pers.prenom}" itemValue="#{pers}"/>
-                    </h:selectManyListbox>-->
+                        <f:converter converterId="personneConverter"/>
+                    </h:selectManyListbox>
                     <h:commandButton action="#{filmBean.modifierPOST()}" value="Modifier"/>
                 </h:panelGrid>
             </h:form>
